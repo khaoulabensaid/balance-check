@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>E-banking</title>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<style type="text/css">
+		body {
+			background-image: url('https://i.pinimg.com/474x/0e/4c/93/0e4c9323a6d96a85070239a308dd9bf7.jpg');
+  			background-repeat: no-repeat;
+  			background-attachment: fixed;
+  			background-size: 100% 100%;
+  			margin-top: 150px;
+  			margin-bottom: 100px;
+  			margin-right: 150px;
+  			margin-left: 80px;
+		}
+		#container {
+			position:absolute;
+   			top:100px;
+   			right:100px;
+		}
+		#right {
+     		color: black;
+    		position: relative;
+		}
+		#login {
+			padding: 0.5rem 1rem;
+    		outline: none;
+    		border: none;
+    		height: 15px;
+    		border-radius: 25px;
+    		width: 150px;
+    		margin: 0.25rem;
+    		transition: .5s;
+    		font-size: 1.15rem;
+    		background-color: #E3E3E3;
+		}
+		#password {
+			padding: 0.5rem 1rem;
+    		outline: none;
+    		border: none;
+    		height: 15px;
+    		border-radius: 25px;
+    		width: 150px;
+    		margin: 0.25rem;
+    		transition: .5s;
+    		font-size: 1.15rem;
+    		background-color: #E3E3E3;
+		}
+		#valid {
+			padding: 0.5rem 1rem;
+    		outline: none;
+    		border: none;
+    		height: 33px;
+    		border-radius: 25px;
+    		width: 90px;
+    		margin: 0.25rem;
+    		transition: .5s;
+    		font-size: 1rem;
+		}
+	</style>
+</head>
+<body>
+
+	<h1 style="color: #191970"><i>Online banking</i></h1>
+	<h2 style="color: blue">One step closer</h2>
+<div >
+	<div id="right" style="font-size: 30px">
+		
+		<div style="font-size: 20px">
+			This portal allows you to stay connected with your bank at all times,<br> manage your accounts remotely and make or schedule electronic transfers.
+		</div>
+	</div>	
+	<div id="container">
+		
+		<table class="login-table">
+							<tr>
+								<td><strong>Username</strong></td>
+							</tr>
+							<tr>
+								<td><input type="text" id="login" placeholder="enter your ID" name="login" required></td>
+							</tr>
+							<tr>
+								<td><strong>Password</strong></td>
+							</tr>
+							<tr>
+								<td>
+									<input style="width: 89%;margin-bottom: 15px;" type="password" placeholder="enter your password" id="password" name="password" required><br>
+									<input type="checkbox" onclick="myFunction()"><strong>Show Password</strong>
+								</td>
+							</tr>
+							<tr>
+								<td class="submit">
+									<button type="submit" id="valid" onclick="validate()">Validate</button>
+								</td>
+							</tr>
+	</div>
+</table>
+
+</div>
+<script src='https://code.jquery.com/jquery-2.2.4.js'></script>
+<script type="text/javascript">
+	function myFunction() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+
+/*var userName = ["khaoulabensaid", "ranoua_lachheb", "mohamed_amine_oueslati"];
+var passWord = ["@Khaoula123", "@Ranoua123", "@Mohamedamine123"];*/
+
+function validate(){
+	var attempt =3;
+	var userId = document.getElementById("login").value;
+	var passId = document.getElementById("password").value;
+if ( userId == "khaoulabensaid" && passId == "@Khaoula123"){
+alert ("Login successfully");
+window.location.href = "check-account.html"; 
+return false;
+}
+else{
+attempt --;
+alert("You have left "+attempt+" attempt(s);");
+if( attempt == 0){
+document.getElementById("login").disabled = true;
+document.getElementById("password").disabled = true;
+document.getElementById("valid").disabled = true;
+return false;
+}
+}
+}
+
+
+</script>
+
+</body>
+</html>
